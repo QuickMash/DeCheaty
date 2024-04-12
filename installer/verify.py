@@ -1,3 +1,4 @@
+# FIle has not been tested
 # This file just verifys download, maybe show console output/input in installer...
 download_score = 0
 t_installer = 0
