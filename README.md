@@ -1,2 +1,3 @@
 # DeCheaty
-A Advanced TF2 anticheat with high customisibility and advanced tools, made in python
+An advanced TF2 anti-cheat with high customisability with advanced tooling
+When downloading, be sure that you have Python 3, or the program will crash.
