@@ -1,7 +1,9 @@
 # DeCheaty APLHA(0.0.1)
 An advanced TF2 anti-cheat with high customisability with advanced tooling.
+
 # INSTALLING
 To install all required modules:
+
 ```txt
 pip install modules.txt
 ```
@@ -10,7 +12,7 @@ Or run the installer script for a automated install, may not be supported on eve
 ## Windows
 Download ``installer.exe``
 
-or Download `` Decheaty-windows.zip``
+or Download ``Decheaty-windows.zip``
 
 ## Linux, Mac or Other
 __Warning! Not all OSes are supported.__
@@ -30,10 +32,11 @@ sudo apt install modules.txt
 ```
 
 or
+
 ```txt
 pip install modules.txt
 ```
 
-Next run `` DeCheaty.py``
+Next run ``DeCheaty.py``
 
 ** ``Decheaty.py`` is the main file **
