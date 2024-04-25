@@ -1,4 +1,3 @@
-import tkinter.messagebox
 import rcon
 import time
 import tkinter
@@ -32,8 +31,7 @@ window.resizable(True, True)
 window.resizable(True, True)
 # Functions
 def send2console():
-    cmd = consolein.get(True)
-    print(cmd)
+    updateconsole()
 def quitclient():
     window.destroy()
     console.destroy()
@@ -44,10 +42,25 @@ def checkupdate():
             time.sleep(.2)
             quitclient()
             updater.upgrade()
+def updateconsole():
+    cmd = consolein.get(1.1)
+    rconclient.sendcommand(cmd)
+    print(cmd)
+    print(rconreturn)
+    consoleout = tkinter.Label(console, text=cmd)
+    consoleout.pack()
 # Elements
+playerlabel = tkinter.Label(window, text='Players:')
+clabel = tkinter.Label(console, text='Game Console:')
+consoleout = tkinter.Label(console, text='')
 sendbtn = tkinter.Button(console, text="Send", command=send2console)
 consolein = tkinter.Text(console, height = 1, width = 20)
 # Program 
+# Window Window
+playerlabel.pack()
+# Console Window
+clabel.pack()
+consoleout.pack()
 consolein.pack() 
 sendbtn.pack() 
 ## Wait a second before calling update dialog
