@@ -11,7 +11,7 @@ Or run the installer script for a automated install, may not be supported on eve
 Download ``installer.exe``
 or Download `` Decheaty-windows.zip``
 ## Linux, Mac or Other
-_ Warning! Not all OSes are supported. _
+__Warning! Not all OSes are supported.__
 ### Setup
 (Automatic)
 
