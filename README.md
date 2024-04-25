@@ -14,11 +14,22 @@ or Download `` Decheaty-windows.zip``
 _ Warning! Not all OSes are supported. _
 ### Setup
 (Automatic)
+
 Run ``setup.py`` in /DeCheaty-*/Upgrade/installer/
+
 (Manual)
+
 First, to get the python librarys, run
-``` sudo apt install modules.txt```
+
+```txt
+sudo apt install modules.txt
+```
+
 or
-``` pip install modules.txt```
+```txt
+pip install modules.txt
+```
+
 Next run `` DeCheaty.py``
+
 ** Decheaty.py is the main file **
