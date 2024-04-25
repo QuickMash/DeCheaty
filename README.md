@@ -36,4 +36,4 @@ pip install modules.txt
 
 Next run `` DeCheaty.py``
 
-** Decheaty.py is the main file **
+** ``Decheaty.py`` is the main file **
