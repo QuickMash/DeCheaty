@@ -14,8 +14,10 @@ import sys
 sys.path.insert(1, 'upgrade')
 sys.path.insert(1, 'src')
 sys.path.insert(1, 'src/loadingui')
+sys.path.insert(1, 'src/game_connection')
 # Importing From Files
 import updater
+import command
 # Variables
 ## Setup Variables
 window = tkinter.Tk()
@@ -28,6 +30,14 @@ remote_version = 'Error'
 v = open('upgrade/version.txt')
 version = v.read()
 winmsg = open('src/configs/window-message.conf', 'r')
+config = open('src/configs/settings.conf', 'r')
+for line in config:
+    if line.startswith('consolebg'):
+        consolebg = line.split(' ')[1]
+    if line.startswith('consolefg'):
+        consolefg = line.split(' ')[1]
+fg = '#' + consolefg
+bg = '#' + consolebg
 window_msg = winmsg.read()
 window.title(window_msg + ' Main')
 console.title(window_msg + ' Game Console')
@@ -35,9 +45,8 @@ window.geometry('600x300')
 console.geometry('300x400')  
 window.resizable(True, True)
 window.resizable(True, True)
+console.config(bg=bg, fg=fg)
 # Functions
-def send2console():
-    updateconsole()
 def quitclient():
     window.destroy()
     console.destroy()
@@ -59,49 +68,26 @@ def updateconsole():
     global lines
     global cmd
     cmd = consolein.get("1.0", "end-1c")
-    lines += 1
-    
-    # Create a new label for the console output
-    
-    # If there are 3 labels, remove the first one
-    if lines > 2:
-        consoleout.pack_forget()
-        consoleout.destroy()
-        consoleout = new_label
-    else:
-        consoleout = new_label
-    
-    # If there are 10 labels, add a clear button
-    if lines == 10:
-        clear_button.pack()
-        lines = 0
-
-def clear_console():
-    global consoleout
-    global lines
-    
-    # Clear the console output
-    consoleout.pack_forget()
-    consoleout.destroy()
-    consoleout = tkinter.Label(console, text='')
-    lines = 0
-
+    command.send(cmd)
+    consoleout.insert("end", '>>> '+ cmd + '\n')
+    consoleout.insert("end", command.returned() + '\n')
 # Elements
 playerlabel = ttk.Label(window, text='Players:')
-clabel = ttk.Label(console, text='Game Console:')
-consoleout = ttk.Label(console, text='')
-sendbtn = ttk.Button(console, text="Send", command=send2console)
-consolein = tkinter.Text(console, height = 1, width = 20)
-# Program 
-# Window Window
-playerlabel.pack()
-# Console Window
-clabel.pack()
-consoleout.pack()
-consolein.pack() 
-sendbtn.pack() 
-## Wait a second before calling update dialog
-time.sleep(1)
+consoleout = tkinter.Text(console, height=10, width=280, bg=consolebg, fg=consolefg)
+consolescroll = ttk.Scrollbar(console, orient=tkinter.VERTICAL, command=consoleout.yview)
+consoleout.config(yscrollcommand=consolescroll.set)
+consoleout.grid(row=0, column=0, sticky='nsew')
+consolescroll.grid(row=0, column=1, sticky='ns')
+consolein = tkinter.Text(console, height=1, width=40)
+consolein.grid(row=1, column=0, pady=(5, 0), sticky='ew')
+sendbtn = ttk.Button(console, text="Send", command=updateconsole)
+sendbtn.grid(row=1, column=1, pady=(5, 0), sticky='ew')
+# Program
+consoleout.insert("end", window_msg + ' Game Console\nBy QuickMash\nNote: This console is only a remote console and cannot interact with the program.\n')
+# Resizing configuration for console frame grid
+console.grid_columnconfigure(0, weight=1)
+console.grid_rowconfigure(0, weight=1)
+playerlabel.pack(side=tkinter.TOP, fill=tkinter.X)
 checkupdate()
 console.mainloop()
 window.mainloop()
