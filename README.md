@@ -1,4 +1,5 @@
 # DeCheaty APLHA(0.0.1)
+## NOT FINISHED!
 ![DeCheaty Logo](/src/images/sus.png)
 Logo not decided yet...
 
