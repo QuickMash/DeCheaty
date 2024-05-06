@@ -1,21 +1,12 @@
-import tkinter.messagebox
-import rcon
 from rcon.source import Client
 import tkinter
 import random
-dcommand = ''
-returned = ''
-config = open('src\configs\settings.conf')
-# Configs
-for line in config:
-    if line.startswith('rconaddress'):
-        ip = line.split(' ')[1]
-    if line.startswith('rconport'):
-        port = line.split(' ')[1]
-    if line.startswith('rconpassword'):
-        password = line.split(' ')[1]
-    if line.startswith('defaultcommand'):
-        dcommand = line.split(' ')[1]
+import sys
+sys.path.insert(1, 'src\configs')
+import config
+config.load('rcon')
+password = None
+# Message Prompts
 if password == 'no_password':
     tkinter.messagebox.showwarning('Warning', 'You are using the default password. Please change it in the settings.conf file.')
 elif password == None:
@@ -26,6 +17,17 @@ elif port == None:
     port = 25575
 else:
     tkinter.messagebox.showinfo('Info', 'Your RCON password:' + password)
+# Functions
+def update():
+    with Client(ip, port, passwd=password) as client:
+        consoleout.insert(Client.send())
 def send(command):
     with Client(ip, port, passwd=password) as client:
-        client.send(command)
+        consoleout.insert(Client.send(command))[1]
+        
+def randpasswd(seed):
+    random.seed(seed)
+    password = random.randint(10000, 999999)
+def clear():
+    command = None
+    print('Command variable cleared.')
