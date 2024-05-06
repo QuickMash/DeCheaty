@@ -1,6 +1,6 @@
 # DeCheaty APLHA(0.0.1)
-Update Comming Up
 ![DeCheaty Logo](/src/images/sus.png)
+Logo not decided yet...
 
 An advanced TF2 anti-cheat with high customisability with advanced tooling.
 
