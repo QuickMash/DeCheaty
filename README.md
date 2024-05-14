@@ -1,7 +1,9 @@
 # DeCheaty APLHA(0.0.1)
 ## NOT FINISHED!
 Progress is slow, I am the only one currently working on it
+
 ![DeCheaty Logo](/src/images/sus.png)
+
 Logo not decided yet...
 
 An advanced TF2 anti-cheat with high customisability with advanced tooling.
@@ -12,6 +14,7 @@ To install all required modules:
 ```txt
 pip install modules.txt
 ```
+
 Or run the installer script for a automated install, may not be supported on every os
 
 ## Windows
