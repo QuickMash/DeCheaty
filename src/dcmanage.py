@@ -1,6 +1,8 @@
 import sys
 sys.path.insert(1, 'src\configs')
 import config
+# Default Config
+player = 'QuickMash'
 def quitclient():
     window.destroy()
     console.destroy()
@@ -46,6 +48,8 @@ def updateconsole():
             console.destroy()
         elif dccmd == (' quit main'):
             window.destroy()
+        elif dccmd == (' user ' + (player)):
+            # Get info about the player...
         else:
             consoleout.insert("end", 'Unknown Command! Use HELP for help\n')
     else:
