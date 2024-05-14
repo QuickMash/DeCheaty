@@ -57,3 +57,6 @@ playerlabel.pack(side=tkinter.TOP, fill=tkinter.X)
 dcmanage.checkupdate()
 console.mainloop()
 window.mainloop()
+while True:
+  keyboard.add_hotkey('ctrl+q', lambda: print('Keybinding was pressed'))
+  
