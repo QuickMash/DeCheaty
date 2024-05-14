@@ -47,6 +47,7 @@ consolein = tkinter.Text(console, height=1, width=40)
 consolein.grid(row=1, column=0, pady=(5, 0), sticky='ew')
 sendbtn = ttk.Button(console, text="Send", command=dcmanage.updateconsole)
 sendbtn.grid(row=1, column=1, pady=(5, 0), sticky='ew')
+playerlist =tkinter.Text(window)
 # Program
 consoleout.insert("end", window_msg + ' Game Console\nBy QuickMash\nUse dc to interact with DeCheaty Commands\n')
 # Resizing configuration for console frame grid
