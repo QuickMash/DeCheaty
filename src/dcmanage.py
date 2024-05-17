@@ -3,13 +3,19 @@ sys.path.insert(1, 'src\configs')
 import config
 # Default Config
 player = 'QuickMash'
-
 def kick(player):
     rcon.send('kick' + player)
 def tellkick(player):
     rcon.send("say" + kickmsg)
+def createmsg(message, index):
+        messages = open('msgs.txt', 'a+')
+        if index != (''|' '):
+            message.write( 'message' + index'="'+message+'"')
+            return "Wrote to file!"
+        else:
+            print('Error! Index cannot be blank')
 def readmsg(indexnumber):
-    messages = open('msgs.txt', 'a+')
+    messages = open('msgs.txt', 'r')
 if indexnumber != (""|" ")
     msgr = messages.read()
         for line in msgsr:
@@ -25,7 +31,6 @@ elif indexnumber == ('debug'|'dbc'|'cat'):
     return 'iwatchu'
 else:
     return "The indexnumber was not defined. newcmd([indexnumber here])"
-         
 def quitclient():
     window.destroy()
     console.destroy()
@@ -69,6 +74,8 @@ def updateconsole():
                 print('hi')
         elif dccmd == (' quit'):
             console.destroy()
+        elif dccmd == (' msgedit'):
+            consoleout.insert("end", 'Opening Message Editor...\n') 
         elif dccmd == (' quit main'):
             window.destroy()
         elif dccmd == (' user ' + (player)):
