@@ -3,6 +3,29 @@ sys.path.insert(1, 'src\configs')
 import config
 # Default Config
 player = 'QuickMash'
+
+def kick(player):
+    rcon.send('kick' + player)
+def tellkick(player):
+    rcon.send("say" + kickmsg)
+def readmsg(indexnumber):
+    messages = open('msgs.txt', 'a+')
+if indexnumber != (""|" ")
+    msgr = messages.read()
+        for line in msgsr:
+            if line.startswith('message' + indexnumber):
+                replyedmsg = line.split('"=')[1].split('"')[0]
+                return replymsg
+elif indexnumber > 0:
+    return "The indexnumber is not positive!"
+elif indexnumber == None:
+    return "The index number cannot be None"
+elif indexnumber == ('debug'|'dbc'|'cat'):
+    print('I am always watching')
+    return 'iwatchu'
+else:
+    return "The indexnumber was not defined. newcmd([indexnumber here])"
+         
 def quitclient():
     window.destroy()
     console.destroy()
