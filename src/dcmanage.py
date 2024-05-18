@@ -5,7 +5,20 @@ import config
 player = 'QuickMash'
 # Advanced
 # Editor
-None
+def msgedit():
+    message_editor = tk.Tk()
+    message_editor.title('Message Editor')
+    message_editor.geometry('400x300')
+
+    # Add a text widget to display the messages
+    message_text = tk.Text(message_editor)
+    message_text.pack(fill="both", expand=True)
+
+    # Add a button to save the messages
+    save_button = tk.Button(message_editor, text="Save")
+    save_button.pack()
+
+    message_editor.mainloop()
 def kick(player):
     rcon.send('kick' + player)
 def tellkick(player):
@@ -78,11 +91,8 @@ def updateconsole():
         elif dccmd == (' quit'):
             console.destroy()
         elif dccmd == (' msgedit'):
-            consoleout.insert("end", 'Opening Message Editor...\n'):
-            msgedit = tkinter.Tk()
-            msgedit.title('DeCheaty Message Editor')
-            msgedit.geometry('400x100')
-            
+            msgedit()
+            consoleout.insert("end", 'Opened Message Editor\n')
         elif dccmd == (' quit main'):
             window.destroy()
         elif dccmd == (' user ' + (player)):
