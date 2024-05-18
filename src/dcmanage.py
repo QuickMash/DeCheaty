@@ -3,6 +3,9 @@ sys.path.insert(1, 'src\configs')
 import config
 # Default Config
 player = 'QuickMash'
+# Advanced
+# Editor
+None
 def kick(player):
     rcon.send('kick' + player)
 def tellkick(player):
@@ -75,7 +78,11 @@ def updateconsole():
         elif dccmd == (' quit'):
             console.destroy()
         elif dccmd == (' msgedit'):
-            consoleout.insert("end", 'Opening Message Editor...\n') 
+            consoleout.insert("end", 'Opening Message Editor...\n'):
+            msgedit = tkinter.Tk()
+            msgedit.title('DeCheaty Message Editor')
+            msgedit.geometry('400x100')
+            
         elif dccmd == (' quit main'):
             window.destroy()
         elif dccmd == (' user ' + (player)):
