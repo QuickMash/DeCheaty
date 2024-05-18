@@ -23,11 +23,17 @@ def update():
         consoleout.insert(Client.send())
 def send(command):
     with Client(ip, port, passwd=password) as client:
-        consoleout.insert(Client.send(command))[1]
-        
+        consoleout.insert(Client.send(command)+'\n')[1]
 def randpasswd(seed):
     random.seed(seed)
     password = random.randint(10000, 999999)
 def clear():
     command = None
+    return None
     print('Command variable cleared.')
+def listplayers():
+    with Client(ip, port, passwd=password) as client:
+        players = client.send('listplayers')
+        return players
+        if players == 'None':
+            return 'Error getting players'
