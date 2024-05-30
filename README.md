@@ -1,6 +1,6 @@
 # DeCheaty APLHA(0.0.1)
 ## NOT FINISHED!
-Progress is slow, I am the only one currently working on it
+Sorry its not finished yet. I am slow at this because school is a priority. :(
 
 ![DeCheaty Logo](/src/images/sus.png)
 
